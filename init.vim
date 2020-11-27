@@ -85,6 +85,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    "Plug 'scrooloose/nerdcommenter'
+    Plug 'tpope/vim-commentary'
+    Plug 'godlygeek/tabular'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -308,3 +311,9 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
  
 " use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+
+""""""""""""""""""""""""""""" tabular '""""""""""""""""""""""""""""""
+"let g:tabular_loaded = 1
+
+""""""""""""""""""""""""""""" vim commentary '""""""""""""""""""""""""""""""
