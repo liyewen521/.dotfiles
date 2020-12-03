@@ -42,8 +42,8 @@ set smarttab                " 在行和段开始处使用制表符
 set nowrap                  " 禁止折行
 set backspace=2             " 使用回车键正常处理indent,eol,start等
 set sidescroll=10           " 设置向右滚动字符数
-set nofoldenable            " 禁用折叠代码
-
+set nofoldenable            " 启动 Vim 时关闭折叠
+set foldmethod=indent       " 缩进折叠模式，za打开或关闭当前折叠，zM关闭所有折叠，zR打开所有折叠
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 搜索设置
@@ -311,6 +311,9 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
  
 " use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+""""""""""""""""""""""""""""" coc extension '""""""""""""""""""""""""""""""
+let g:coc_global_extensions = ['coc-clangd', 'coc-git', 'coc-highlight', 'coc-sh', 'coc-java', 'coc-cmake', 'coc-markdownlint']
 
 
 """"""""""""""""""""""""""""" tabular '""""""""""""""""""""""""""""""
