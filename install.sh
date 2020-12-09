@@ -1,10 +1,11 @@
 #!/bin/bash
 
 # --- Install my_neovim
-git clone https://github.com/liyewen521/my_neovim.git .my_neovim
+# git clone https://github.com/liyewen521/my_neovim.git .my_neovim
 
 # --- Install neovim 
 cd ~
+rm -rf nvim-linux64.tar.gz
 wget https://github.com/neovim/neovim/releases/download/v0.4.4/nvim-linux64.tar.gz
 tar -xvf nvim-linux64.tar.gz
 echo ''                                       >> ~/.bashrc
@@ -17,7 +18,7 @@ rm nvim-linux64.tar.gz
 # --- Install vim-plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 mkdir -p ~/.config/nvim/
-ln -s ~/.my_neovim/init.vim ~/.config/nvim/
+ln -sf ~/.my_neovim/init.vim ~/.config/nvim/
 
 # --- Install plugins
 # for targar
