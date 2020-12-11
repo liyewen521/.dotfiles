@@ -338,3 +338,6 @@ nnoremap <c-l> <c-w>l
 
 " 将系统剪切板内容粘贴到vim
 " nnoremap <leader><leader>p "+p
+
+" 编辑vimrc相关配置文件
+nnoremap <leader>e :edit $MYVIMRC<cr>
