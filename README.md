@@ -1,2 +1,2 @@
-# my\_neovim
-My neovim configuration
+# linux\_tool
+My configuration of neovim, tmux, zsh, docker, and so on... 
