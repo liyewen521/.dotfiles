@@ -1,2 +1,6 @@
 # linux\_tool
-My configuration of neovim, tmux, zsh, docker, and so on... 
+The configurations of liunx tools:
+  - neovim
+  - tmux
+  - zsh
+  - docker
