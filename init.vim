@@ -90,6 +90,8 @@ call plug#begin('~/.config/nvim/plugged')
     "Plug 'scrooloose/nerdcommenter'
     Plug 'tpope/vim-commentary'
     Plug 'godlygeek/tabular'
+    Plug 'biosyntax/biosyntax-vim'
+    Plug 'mhinz/vim-startify'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -334,10 +336,15 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
 " 复制当前选中到系统剪切板
-" vmap <leader><leader>y "+y
+vmap <leader><leader>y "+y
 
 " 将系统剪切板内容粘贴到vim
-" nnoremap <leader><leader>p "+p
+nnoremap <leader><leader>p "+p
 
 " 编辑vimrc相关配置文件
 nnoremap <leader>e :edit $MYVIMRC<cr>
+
+" 安装、更新、删除插件
+nnoremap <leader><leader>i :PlugInstall<cr>
+nnoremap <leader><leader>u :PlugUpdate<cr>
+nnoremap <leader><leader>c :PlugClean<cr>
