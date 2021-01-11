@@ -87,11 +87,12 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    "Plug 'scrooloose/nerdcommenter'
+    " Plug 'scrooloose/nerdcommenter'
     Plug 'tpope/vim-commentary'
     Plug 'godlygeek/tabular'
-    Plug 'biosyntax/biosyntax-vim'
+    " Plug 'biosyntax/biosyntax-vim'
     Plug 'mhinz/vim-startify'
+    Plug 'puremourning/vimspector'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -324,6 +325,9 @@ let g:coc_global_extensions = ['coc-clangd', 'coc-git', 'coc-highlight', 'coc-sh
 "let g:tabular_loaded = 1
 
 """"""""""""""""""""""""""""" vim commentary '""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""" vimspector '""""""""""""""""""""""""""""""
+let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
