@@ -93,6 +93,7 @@ call plug#begin('~/.config/nvim/plugged')
     " Plug 'biosyntax/biosyntax-vim'
     Plug 'mhinz/vim-startify'
     Plug 'puremourning/vimspector'
+    Plug 'vim-scripts/autoload_cscope.vim'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -328,6 +329,33 @@ let g:coc_global_extensions = ['coc-clangd', 'coc-git', 'coc-highlight', 'coc-sh
 
 """"""""""""""""""""""""""""" vimspector '""""""""""""""""""""""""""""""
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+
+""""""""""""""""""""""""""""" vim-cscope '""""""""""""""""""""""""""""""
+set nocst    "在cscope数据库添加成功的时候不在命令栏现实提示信息.
+set cspc=6  "cscope的查找结果在格式上最多显示6层目录.
+let g:autocscope_menus=0  "关闭autocscope插件的快捷健映射.防止和我们定义的快捷键冲突.
+
+" ctags 快捷键
+nmap ff <c-]>
+nmap ss <c-t>
+
+"cscope相关的快捷键映射
+"s:查找即查找C语言符号出现的地方
+nmap fs :cs find s <C-R>=expand("<cword>")<CR><CR>
+"g:查找函数、宏、枚举等定义的位置
+nmap fg :cs find g <C-R>=expand("<cword>")<CR><CR>
+"c:查找光标下的函数被调用的地方
+nmap fc :cs find c <C-R>=expand("<cword>")<CR><CR>
+"t: 查找指定的字符串出现的地方
+nmap ft :cs find t <C-R>=expand("<cword>")<CR><CR>
+"e:egrep模式查找,相当于egrep功能
+nmap fe :cs find e <C-R>=expand("<cword>")<CR><CR>
+"f: 查找文件名,相当于lookupfile
+nmap fn :cs find f <C-R>=expand("<cfile>")<CR><CR>
+"i: 查找当前文件名出现过的地方
+nmap fi :cs find i <C-R>=expand("<cfile>")<CR><CR>
+"d: 查找本当前函数调用的函数
+nmap fd :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
