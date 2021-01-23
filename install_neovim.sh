@@ -104,6 +104,7 @@ function install_prepare_software_on_ubuntu()
 
 # install neovim
 function begin_install_neovim() {
+    
     # install neovim using source 
     cd $HOME
     is_exist=$(is_exist_file nvim-linux64.tar.gz)
