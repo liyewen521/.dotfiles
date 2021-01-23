@@ -1,5 +1,5 @@
 # linux\_tool
-My configurations of liunx tools:
+My configurations of some tools using on Linux:
   - neovim
   - tmux
   - zsh
