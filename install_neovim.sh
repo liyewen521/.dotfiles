@@ -91,7 +91,8 @@ function install_prepare_software_on_ubuntu()
 
     # for coc.vim 
     curl -sL install-node.now.sh/lts | bash  # nodejs version >= 10.12 
-    apt install -y npm 
+    apt install -y npm
+    apt install -y cscope
     apt install -y locales locales-all
     pip3 install pynvim
     
