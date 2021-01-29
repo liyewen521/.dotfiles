@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # get date
 function get_datetime()
 {
@@ -41,6 +42,8 @@ function backup_vimrc_file()
         if [[ $ch == "Y" ]] || [[ $ch == "y" ]]; then
             cp $old_vimrc $backup_vimrc
         fi
+    else
+	    echo "INFO: No .vimrc file found, don't need to back up"
     fi
 }
 
@@ -56,6 +59,8 @@ function backup_initvim_file()
         if [[ $ch == "Y" ]] || [[ $ch == "y" ]]; then
             cp $old_initvim $backup_initvim
         fi
+    else
+ 	    echo "INFO: No init.vim file found, don't need to back up"
     fi
 }
 
@@ -78,8 +83,13 @@ function get_ubuntu_version()
 # install needed softwares
 function install_prepare_software_on_ubuntu()
 {
+    export ALL_PROXY=socks5://10.18.83.170:10808
+    export http_proxy=http://10.18.83.170:10809
+    export https_proxy=http://10.18.83.170:10809
+    
     sudo apt update
 
+    echo "INFO: Install required software on Ubuntu"
     version=$(get_ubuntu_version)
     if [ $version -eq 14 ];then
         sudo apt install -y cmake3
@@ -87,52 +97,42 @@ function install_prepare_software_on_ubuntu()
         sudo apt install -y cmake
     fi
 
-    sudo apt install -y ctags build-essential python python3 python-dev python3-dev fontconfig libfile-next-perl ack-grep git curl wget 
+    # sudo apt install -y ctags build-essential python python-dev python3-dev python3-pip fontconfig libfile-next-perl ack-grep git curl wget 
+    sudo apt install -y ctags python3 python3 python3-pip curl wget git
 
     # for coc.vim 
-    curl -sL install-node.now.sh/lts | bash  # nodejs version >= 10.12 
-    apt install -y npm
-    apt install -y cscope
-    apt install -y locales locales-all
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
+    sudo apt install -y nodejs
+    sudo apt install -y npm
+    sudo apt install -y cscope
+    sudo apt install -y locales locales-all
     pip3 install pynvim
     
-    # if [ $version -ge 18 ];then
-    #     sudo apt-get install -y vim
-    # else
-    #     compile_vim_on_ubuntu
-    # fi
+    echo "INFO: Install required software finished"
 }
 
 # install neovim
 function begin_install_neovim() {
     
-    # install neovim using source 
-    cd $HOME
-    is_exist=$(is_exist_file nvim-linux64.tar.gz)
-    if [ $is_exist == 1 ]; then
-        rm nvim-linux64.tar.gz    
-    fi
-    wget https://github.com/neovim/neovim/releases/download/v0.4.4/nvim-linux64.tar.gz
-    tar -zxvf nvim-linux64.tar.gz
-    echo ''                                       >> $HOME/.bashrc
-    echo '#Neovim'                                >> $HOME/.bashrc
-    echo 'export PATH=${PATH}:~/nvim-linux64/bin' >> $HOME/.bashrc
-    echo "alias vim='nvim' "                      >> $HOME/.bashrc
+    # install neovim using source
+    sudo apt install -y neovim
+    echo ''                          >> $HOME/.bashrc
+    echo '#Neovim'                   >> $HOME/.bashrc
+    echo "alias vim='nvim' "         >> $HOME/.bashrc
+    echo 'export LC_ALL=en_US.UTF-8' >> $HOME/.bashrc
+    echo 'export LANG=en_US.UTF-8'   >> $HOME/.bashrc
     source $HOME/.bashrc
-    rm nvim-linux64.tar.gz
 
     # install vim-plug
     sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     mkdir -p $HOME/.config/nvim/
-    ln -sf $HOME/my_neovim/init.vim $HOME/.config/nvim/
+    ln -sf ${PWD}/init.vim $HOME/.config/nvim/
 
     # install plugins
-    echo 'export LC_ALL=en_US.UTF-8' >> ~/.bashrc  
-    echo 'export LANG=en_US.UTF-8'   >> ~/.bashrc
-    $HOME/nvim-linux64/bin/nvim -c "PlugInstall" -c "q" -c "q"
+    nvim -c "PlugInstall" -c "q" -c "q"
 
     # finish
-    echo "Neovim install Finished !"
+    echo "INFO: Neovim install Finished !"
 }
 
 # install neovim on ubuntu
@@ -140,7 +140,14 @@ function install_neovim_on_ubuntu()
 {
     backup_vimfiles
     install_prepare_software_on_ubuntu
+    # export ALL_PROXY=socks5://10.18.83.170:10808
+    # export http_proxy=http://10.18.83.170:10809
+    # export https_proxy=http://10.18.83.170:10809
     begin_install_neovim
+    # echo ${PWD}
+    # echo `dirname $(readlink -f "$0")`
+    # mkdir -p $HOME/.config/nvim/
+    # ln -s ${PWD}/init.vim $HOME/.config/nvim/
 }
 
 # get linux distributions
