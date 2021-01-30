@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # get date
 function get_datetime()
 {
@@ -83,10 +82,7 @@ function get_ubuntu_version()
 # install needed softwares
 function install_prepare_software_on_ubuntu()
 {
-    export ALL_PROXY=socks5://10.18.83.170:10808
-    export http_proxy=http://10.18.83.170:10809
-    export https_proxy=http://10.18.83.170:10809
-    
+
     sudo apt update
 
     echo "INFO: Install required software on Ubuntu"
@@ -140,14 +136,7 @@ function install_neovim_on_ubuntu()
 {
     backup_vimfiles
     install_prepare_software_on_ubuntu
-    # export ALL_PROXY=socks5://10.18.83.170:10808
-    # export http_proxy=http://10.18.83.170:10809
-    # export https_proxy=http://10.18.83.170:10809
     begin_install_neovim
-    # echo ${PWD}
-    # echo `dirname $(readlink -f "$0")`
-    # mkdir -p $HOME/.config/nvim/
-    # ln -s ${PWD}/init.vim $HOME/.config/nvim/
 }
 
 # get linux distributions

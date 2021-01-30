@@ -12,7 +12,7 @@ function get_ubuntu_version()
 
 # system prepare for Ubuntu
 function system_prepare_on_ubuntu() {
-    
+   
     mv /etc/apt/sources.list /etc/apt/sources.list.backup
 
     version=$(get_ubuntu_version)
@@ -143,7 +143,7 @@ function get_now_timestamp()
 }
 
 # main function
-function main(){
+function change_mirrors(){
 
     begin=`get_now_timestamp`
 
@@ -173,5 +173,29 @@ function main(){
 
 }
 
-# invoke main function
-main
+function change_proxy(){
+    export ALL_PROXY=socks5://10.18.83.170:10808 # for git
+    export http_proxy=http://10.18.83.170:10809 # for wget, curl
+    export https_proxy=http://10.18.83.170:10809 # for wget, curl
+}
+
+# main function
+if [ $1 == "change_mirrors" ]; then # strange grammar rules :(
+    change_mirrors
+elif [ $1 == "change_proxy" ]; then
+    change_proxy
+fi
+
+# function main(){
+# 
+#     echo $0
+#     echo $1    
+#     # if [ $0 == "change_mirrors" ]; then # strange grammar rules :(
+#         change_mirrors
+#     # elif [ $0 == "change_proxy" ]; then
+#         change_proxy
+#     # fi
+# }
+# 
+# # invoke main function
+# main
