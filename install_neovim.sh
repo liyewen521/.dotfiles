@@ -94,7 +94,8 @@ function install_prepare_software_on_ubuntu()
     fi
 
     # sudo apt install -y ctags build-essential python python-dev python3-dev python3-pip fontconfig libfile-next-perl ack-grep git curl wget 
-    sudo apt install -y ctags python3 python3 python3-pip curl wget git
+    sudo apt install -y ctags python3 python3 python3-pip curl wget git clangd-11
+    sudo ln -f /usr/bin/clangd-11 /usr/bin/clangd
 
     # for coc.vim 
     curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -

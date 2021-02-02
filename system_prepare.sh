@@ -173,16 +173,17 @@ function change_mirrors(){
 
 }
 
-function change_proxy(){
-    export ALL_PROXY=socks5://10.18.83.170:10808 # for git
-    export http_proxy=http://10.18.83.170:10809 # for wget, curl
-    export https_proxy=http://10.18.83.170:10809 # for wget, curl
+function change_clangd(){
+    LINUX_VERSION_NAME=`lsb_release -sc`
+    echo "For clangd-11" >> /etc/apt/sources.list
+    echo "deb http://apt.llvm.org/${LINUX_VERSION_NAME}/ llvm-toolchain-${LINUX_VERSION_NAME}-11 main" >> /etc/apt/sources.list
+    echo "deb-src http://apt.llvm.org/${LINUX_VERSION_NAME}/ llvm-toolchain-${LINUX_VERSION_NAME}-11 main" >> /etc/apt/sources.list
 }
 
 # main function
 if [ $1 == "change_mirrors" ]; then # strange grammar rules :(
     change_mirrors
-elif [ $1 == "change_proxy" ]; then
+elif [ $1 == "change_clangd" ]; then
     change_proxy
 fi
 
