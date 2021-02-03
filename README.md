@@ -1,21 +1,23 @@
 # Overview
 My configurations of some Linux tool:
+  - System Configure
   - NeoVIM
   - Tmux
   - Zsh
 
 ## System Configure
-### Change Mirror to Tsinghua or Aliyun
+### change package source to Tsinghua or Aliyun, and add clangd-11 source
 ```bash
-$ sudo bash system_prepare.sh change_mirrors
+$ sudo bash system_prepare.sh
 ```
-### Change proxy to V2ray
+### set system configure
 ```bash
-$ source system_prepare.sh change_proxy # if only activate in current terminal
+$ source common_configure.sh
 ```
 ## Neovim
 ```bash
-$ source system_prepare.sh # set proxy
+$ cd neovim
+$ set_my_vpn
 $ source install_neovim.sh # install neovim
 ```
 
@@ -27,6 +29,7 @@ $ source install_tmux.sh
 
 # Zsh
 ```bash
+$ cd zsh
 $ source system_prepare.sh # set proxy
 $ source install_zsh.sh  
 ```

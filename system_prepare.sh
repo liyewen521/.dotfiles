@@ -143,7 +143,7 @@ function get_now_timestamp()
 }
 
 # main function
-function change_mirrors(){
+function change_pkg_source(){
 
     begin=`get_now_timestamp`
 
@@ -173,30 +173,24 @@ function change_mirrors(){
 
 }
 
-function change_clangd(){
-    LINUX_VERSION_NAME=`lsb_release -sc`
+function change_clangd-11(){
+    linux_version_name=`lsb_release -sc`
     echo "For clangd-11" >> /etc/apt/sources.list
-    echo "deb http://apt.llvm.org/${LINUX_VERSION_NAME}/ llvm-toolchain-${LINUX_VERSION_NAME}-11 main" >> /etc/apt/sources.list
-    echo "deb-src http://apt.llvm.org/${LINUX_VERSION_NAME}/ llvm-toolchain-${LINUX_VERSION_NAME}-11 main" >> /etc/apt/sources.list
+    echo "deb http://apt.llvm.org/${linux_version_name}/ llvm-toolchain-${linux_version_name}-11 main" >> /etc/apt/sources.list
+    echo "deb-src http://apt.llvm.org/${linux_version_name}/ llvm-toolchain-${linux_version_name}-11 main" >> /etc/apt/sources.list
 }
 
 # main function
-if [ $1 == "change_mirrors" ]; then # strange grammar rules :(
-    change_mirrors
-elif [ $1 == "change_clangd" ]; then
-    change_proxy
-fi
+# if [ $1 == "change_mirrors" ]; then # strange grammar rules :(
+#     change_mirrors
+# elif [ $1 == "change_clangd" ]; then
+#     change_proxy
+# fi
 
-# function main(){
-# 
-#     echo $0
-#     echo $1    
-#     # if [ $0 == "change_mirrors" ]; then # strange grammar rules :(
-#         change_mirrors
-#     # elif [ $0 == "change_proxy" ]; then
-#         change_proxy
-#     # fi
-# }
-# 
-# # invoke main function
-# main
+function main(){
+    change_pkg_source
+    change_clangd-11
+}
+
+# invoke main function
+main
