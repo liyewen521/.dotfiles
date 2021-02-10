@@ -6,6 +6,12 @@ My configurations of some Linux tool:
   - Zsh
 
 ## System Configure
+### Get this repository
+```bash
+$ git clone https://github.com/liyewen521/linux_tools.git
+$ cd linux_tools
+$ git submodule update --init
+```
 ### change package source to Tsinghua or Aliyun, and add clangd-11 source
 ```bash
 $ sudo bash system_prepare.sh
