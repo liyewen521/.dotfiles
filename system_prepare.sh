@@ -198,8 +198,8 @@ function install_proxychains-ng(){
 }
 
 function main(){
-    # change_pkg_source
-    # change_clangd-11_source
+    change_pkg_source
+    change_clangd-11_source
     install_proxychains-ng
 }
 

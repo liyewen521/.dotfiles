@@ -6,37 +6,37 @@ My configurations of some Linux tool:
   - Zsh
 
 ## System Configure
+
 ### Get this repository
 ```bash
 $ git clone https://github.com/liyewen521/linux_tools.git
 $ cd linux_tools
 $ git submodule update --init
 ```
+
 ### change package source to Tsinghua or Aliyun, and add clangd-11 source
 ```bash
-$ sudo bash system_prepare.sh
+$ source system_prepare.sh
 ```
-### set system configure
+
+### set system configure(optical)
 ```bash
 $ source common_configure.sh
 ```
+
 ## Neovim
 ```bash
 $ cd neovim
-$ set_my_vpn
-$ source install_neovim.sh # install neovim
+$ source install_neovim.sh
 ```
 
 # Tmux
 ```bash
-$ source system_prepare.sh # set proxy
 $ source install_tmux.sh  
 ```
 
 # Zsh
 ```bash
 $ cd zsh
-$ source system_prepare.sh # set proxy
 $ source install_zsh.sh  
 ```
-
