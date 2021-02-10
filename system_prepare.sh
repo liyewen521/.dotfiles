@@ -13,47 +13,48 @@ function get_ubuntu_version()
 # system prepare for Ubuntu
 function system_prepare_on_ubuntu() {
    
-    mv /etc/apt/sources.list /etc/apt/sources.list.backup
+    sudo mv /etc/apt/sources.list /etc/apt/sources.list.backup
 
     version=$(get_ubuntu_version)
     if [ $version -eq 16 ];then
-        echo "deb http://mirrors.aliyun.com/ubuntu/ xenial main" >> /etc/apt/sources.list
-        echo "deb-src http://mirrors.aliyun.com/ubuntu/ xenial main" >> /etc/apt/sources.list
-        echo "deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main" >> /etc/apt/sources.list
-        echo "deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main" >> /etc/apt/sources.list
-        echo "deb http://mirrors.aliyun.com/ubuntu/ xenial universe" >> /etc/apt/sources.list
-        echo "deb-src http://mirrors.aliyun.com/ubuntu/ xenial universe" >> /etc/apt/sources.list
-        echo "deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe" >> /etc/apt/sources.list
-        echo "deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates universe" >> /etc/apt/sources.list
-        echo "deb http://mirrors.aliyun.com/ubuntu/ xenial-security main" >> /etc/apt/sources.list
-        echo "deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main" >> /etc/apt/sources.list
-        echo "deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe" >> /etc/apt/sources.list
-        echo "deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security universe" >> /etc/apt/sources.list
+        sudo sh -c " echo 'deb http://mirrors.aliyun.com/ubuntu/ xenial main' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb-src http://mirrors.aliyun.com/ubuntu/ xenial main' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb http://mirrors.aliyun.com/ubuntu/ xenial universe' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb-src http://mirrors.aliyun.com/ubuntu/ xenial universe' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates universe' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb http://mirrors.aliyun.com/ubuntu/ xenial-security main' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security universe' >> /etc/apt/sources.list "
     elif [ $version -eq 18 ];then
-        echo "deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse" >> /etc/apt/sources.list
-        echo "deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse" >> /etc/apt/sources.list
-        echo "deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse" >> /etc/apt/sources.list
-        echo "deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse" >> /etc/apt/sources.list
-        echo "deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse" >> /etc/apt/sources.list
-        echo "deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse" >> /etc/apt/sources.list
-        echo "deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse" >> /etc/apt/sources.list
-        echo "deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse" >> /etc/apt/sources.list
-        echo "deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse" >> /etc/apt/sources.list
-        echo "deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse" >> /etc/apt/sources.list
+        sudo sh -c " echo 'deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse' >> /etc/apt/sources.list "
     elif [ $version -eq 20 ];then
-        echo "deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse" >> /etc/apt/sources.list
-        echo "deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse" >> /etc/apt/sources.list
-        echo "deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse" >> /etc/apt/sources.list
-        echo "deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse" >> /etc/apt/sources.list
-        echo "deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse" >> /etc/apt/sources.list
-        echo "deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse" >> /etc/apt/sources.list
-        echo "deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse" >> /etc/apt/sources.list
-        echo "deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse" >> /etc/apt/sources.list
-        echo "deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse" >> /etc/apt/sources.list
-        echo "deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse" >> /etc/apt/sources.list
+        sudo sh -c " echo 'deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse' >> /etc/apt/sources.list "
+        sudo sh -c " echo 'deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse' >> /etc/apt/sources.list "
     else
     	echo "Invalid Version"
     fi
+    sudo apt update
 }
 
 # get linux distributions
@@ -173,23 +174,33 @@ function change_pkg_source(){
 
 }
 
-function change_clangd-11(){
+function change_clangd-11_source(){
     linux_version_name=`lsb_release -sc`
-    echo "For clangd-11" >> /etc/apt/sources.list
-    echo "deb http://apt.llvm.org/${linux_version_name}/ llvm-toolchain-${linux_version_name}-11 main" >> /etc/apt/sources.list
-    echo "deb-src http://apt.llvm.org/${linux_version_name}/ llvm-toolchain-${linux_version_name}-11 main" >> /etc/apt/sources.list
+    sudo sh -c " echo '# For clangd-11' >> /etc/apt/sources.list "
+    sudo sh -c " echo 'deb http://apt.llvm.org/${linux_version_name}/ llvm-toolchain-${linux_version_name}-11 main' >> /etc/apt/sources.list "
+    sudo sh -c " echo 'deb-src http://apt.llvm.org/${linux_version_name}/ llvm-toolchain-${linux_version_name}-11 main' >> /etc/apt/sources.list "i
+    wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+    sudo apt update
 }
 
-# main function
-# if [ $1 == "change_mirrors" ]; then # strange grammar rules :(
-#     change_mirrors
-# elif [ $1 == "change_clangd" ]; then
-#     change_proxy
-# fi
+function install_proxychains-ng(){
+    root_path=${PWD}
+    echo "$PWD"
+    echo "$root_path"
+    sudo apt install -y make gcc curl 
+    cd ./3rd_Party/proxychains-ng/
+    ./configure
+    make
+    cd $root_path
+    echo '# For proxychains-ng' >> $HOME/.bashrc
+    echo "alias pc4='$root_path/3rd_Party/proxychains-ng/proxychains4 -f $root_path/3rd_Party/proxychains.conf.lyw'" >> $HOME/.bashrc
+    source $HOME/.bashrc
+}
 
 function main(){
-    change_pkg_source
-    change_clangd-11
+    # change_pkg_source
+    # change_clangd-11_source
+    install_proxychains-ng
 }
 
 # invoke main function
