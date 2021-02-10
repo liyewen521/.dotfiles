@@ -93,12 +93,11 @@ function install_prepare_software_on_ubuntu()
         sudo apt install -y cmake
     fi
 
-    # sudo apt install -y ctags build-essential python python-dev python3-dev python3-pip fontconfig libfile-next-perl ack-grep git curl wget 
     sudo apt install -y ctags python3 python3 python3-pip curl wget git clangd-11
     sudo ln -f /usr/bin/clangd-11 /usr/bin/clangd
 
     # for coc.vim 
-    curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
+    pc4 curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
     sudo apt install -y nodejs
     sudo apt install -y npm
     sudo apt install -y cscope
@@ -121,7 +120,7 @@ function begin_install_neovim() {
     source $HOME/.bashrc
 
     # install vim-plug
-    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    pc4 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     mkdir -p $HOME/.config/nvim/
     ln -sf ${PWD}/init.vim $HOME/.config/nvim/
 
