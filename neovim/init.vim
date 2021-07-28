@@ -187,7 +187,7 @@ let g:rainbow_conf = {
 
 """"""""""""""""""""""""""""" nerdtree '""""""""""""""""""""""""""""""
 " autocmd vimenter * NERDTree  "自动开启Nerdtree
-let g:NERDTreeWinSize = 35 "设定 NERDTree 视窗大小
+let g:NERDTreeWinSize = 25 "设定 NERDTree 视窗大小
 let NERDTreeShowBookmarks=1  " 开启Nerdtree时自动显示Bookmarks
 "打开vim时如果没有文件自动打开NERDTree
 " autocmd vimenter * if !argc()|NERDTree|endif
