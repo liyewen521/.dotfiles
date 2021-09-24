@@ -26,6 +26,7 @@ set ttimeoutlen=0             " 设置<ESC>键响应时间
 set virtualedit=block,onemore " 允许光标出现在最后一个字符的后面
 set redrawtime=100000         " 高亮文档的行数上限
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 代码缩进和排版
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -51,7 +52,7 @@ set foldmethod=indent       " 缩进折叠模式，za打开或关闭当前折叠
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set hlsearch            " 高亮显示搜索结果
 set incsearch           " 开启实时搜索功能
-" set ignorecase          " 搜索时大小写不敏感
+set ignorecase          " 搜索时大小写不敏感
 set noic                " 搜索时大小写敏感
 
 
@@ -107,8 +108,10 @@ set tags=./.tags,.tags,./tags,tags
 let g:indent_guides_guide_size            = 1  " 指定对齐线的尺寸
 let g:indent_guides_start_level           = 2  " 从第二层开始可视化显示缩进
 
-" monokai
-colo monokai
+""""""""""""""""""""""""""""" vim-monikai '""""""""""""""""""""""""""""""
+colorscheme monokai
+let g:monokai_term_italic = 1
+let g:monokai_gui_italic = 1
 
 """"""""""""""""""""""""""""" airline '""""""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
