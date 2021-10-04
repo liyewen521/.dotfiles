@@ -1,5 +1,4 @@
 " Author: Yewen Li
-" Repository: https://github.com/liyewen521/my_neovim.git
 " Create Date: 2020-11-07
 " License: MIT
 
@@ -81,7 +80,8 @@ set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.config/nvim/plugged')
     Plug 'Yggdroot/indentLine'
-    Plug 'crusoexia/vim-monokai'
+    " Plug 'crusoexia/vim-monokai'
+    Plug 'rakr/vim-one'
     Plug 'vim-airline/vim-airline'       
     Plug 'vim-airline/vim-airline-themes'
     Plug 'luochen1990/rainbow'
@@ -101,24 +101,19 @@ call plug#end()
 " Vim-Plug 插件配置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""" ctags '""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""" ctags """""""""""""""""""""""""""""
 set tags=./.tags,.tags,./tags,tags
 
-""""""""""""""""""""""""""""" indentLine '""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""" indentLine """""""""""""""""""""""""""""
 let g:indent_guides_guide_size            = 1  " 指定对齐线的尺寸
 let g:indent_guides_start_level           = 2  " 从第二层开始可视化显示缩进
 
-""""""""""""""""""""""""""""" vim-monikai '""""""""""""""""""""""""""""""
-colorscheme monokai
-let g:monokai_term_italic = 1
-let g:monokai_gui_italic = 1
-
-""""""""""""""""""""""""""""" airline '""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""" airline """""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#buffer_nr_show = 0
 let g:airline#extensions#tabline#formatter = 'default'
-let g:airline_theme = 'desertink'  " 主题
+let g:airline_theme = 'one'  " 主题
 let g:airline#extensions#keymap#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#buffer_idx_format = {
@@ -163,7 +158,11 @@ nmap <c-t> :enew<cr>
 " let g:airline_symbols.dirty = "DT"
 " let g:airline_symbols.crypt = "CR"
 
-""""""""""""""""""""""""""""" rainbow '""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""" vim-color-scheme """""""""""""""""""""""""""""
+colorscheme one
+set background=dark
+
+""""""""""""""""""""""""""""" rainbow """""""""""""""""""""""""""""
 let g:rainbow_active = 1
 let g:rainbow_conf = {
 \   'guifgs': ['darkorange3', 'seagreen3', 'royalblue3', 'firebrick'],
@@ -188,7 +187,7 @@ let g:rainbow_conf = {
 \   }
 \}
 
-""""""""""""""""""""""""""""" nerdtree '""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""" nerdtree """""""""""""""""""""""""""""
 " autocmd vimenter * NERDTree  "自动开启Nerdtree
 let g:NERDTreeWinSize = 25 "设定 NERDTree 视窗大小
 let NERDTreeShowBookmarks=1  " 开启Nerdtree时自动显示Bookmarks
@@ -221,7 +220,7 @@ let g:clipboard = {
   \ }
 
 
-""""""""""""""""""""""""""""" coc '""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""" coc-vim """""""""""""""""""""""""""""
 " if hidden is not set, TextEdit might fail.
 set hidden
 " Some servers have issues with backup files, see #649
@@ -321,19 +320,19 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-""""""""""""""""""""""""""""" coc extension '""""""""""""""""""""""""""""""
-let g:coc_global_extensions = ['coc-clangd', 'coc-git', 'coc-highlight', 'coc-sh', 'coc-java', 'coc-cmake', 'coc-markdownlint']
+""""""""""""""""""""""""""""" coc extension """""""""""""""""""""""""""""
+let g:coc_global_extensions = ['coc-highlight', 'coc-clangd', 'coc-sh', 'coc-rls']
 
 
-""""""""""""""""""""""""""""" tabular '""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""" tabular """""""""""""""""""""""""""""
 "let g:tabular_loaded = 1
 
-""""""""""""""""""""""""""""" vim commentary '""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""" vim commentary """""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""" vimspector '""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""" vimspector """""""""""""""""""""""""""""
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 
-""""""""""""""""""""""""""""" vim-cscope '""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""" vim-cscope """""""""""""""""""""""""""""
 set nocst    "在cscope数据库添加成功的时候不在命令栏现实提示信息.
 set cspc=6  "cscope的查找结果在格式上最多显示6层目录.
 let g:autocscope_menus=0  "关闭autocscope插件的快捷健映射.防止和我们定义的快捷键冲突.
