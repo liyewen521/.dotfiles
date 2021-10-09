@@ -27,6 +27,7 @@ set redrawtime=100000         " 高亮文档的行数上限
 set wildmenu                  " 命令自动补全功能
 set relativenumber            " 显示相对行号
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 代码缩进和排版
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -78,6 +79,7 @@ set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 插件及配置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" @ vim-plug
 call plug#begin('~/.config/nvim/plugged')
     Plug 'Yggdroot/indentLine'
     Plug 'fugalh/desert.vim'
@@ -94,18 +96,14 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'vim-scripts/autoload_cscope.vim'
 call plug#end()
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vim-Plug 插件配置
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""" ctags """""""""""""""""""""""""""""
+" @ ctags
 set tags=./.tags,.tags,./tags,tags
 
-""""""""""""""""""""""""""""" indentLine """""""""""""""""""""""""""""
-let g:indent_guides_guide_size            = 1  " 指定对齐线的尺寸
-let g:indent_guides_start_level           = 2  " 从第二层开始可视化显示缩进
+" @ indentLine
+let g:indent_guides_guide_size   = 1  " 指定对齐线的尺寸
+let g:indent_guides_start_level  = 2  " 从第二层开始可视化显示缩进
 
-""""""""""""""""""""""""""""" airline """""""""""""""""""""""""""""
+" @ airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#buffer_nr_show = 0
@@ -134,10 +132,10 @@ nmap <c-q> :bp<cr>:bd #<cr>
 " 新建tab
 nmap <c-t> :enew<cr>
 
-""""""""""""""""""""""""""""" desert color scheme """""""""""""""""""""""""""""
+" @ desert color scheme
 " colorscheme desert
 
-""""""""""""""""""""""""""""" rainbow """""""""""""""""""""""""""""
+" @ rainbow
 let g:rainbow_active = 1
 let g:rainbow_conf = {
 \   'guifgs': ['darkorange3', 'seagreen3', 'royalblue3', 'firebrick'],
@@ -162,7 +160,7 @@ let g:rainbow_conf = {
 \   }
 \}
 
-""""""""""""""""""""""""""""" nerdtree """""""""""""""""""""""""""""
+" @ nerdtree
 " autocmd vimenter * NERDTree  "自动开启Nerdtree
 let g:NERDTreeWinSize = 25 "设定 NERDTree 视窗大小
 let NERDTreeShowBookmarks=1  " 开启Nerdtree时自动显示Bookmarks
@@ -195,7 +193,7 @@ let g:clipboard = {
   \ }
 
 
-""""""""""""""""""""""""""""" coc-vim """""""""""""""""""""""""""""
+" @ coc-vim
 " if hidden is not set, TextEdit might fail.
 set hidden
 " Some servers have issues with backup files, see #649
@@ -295,19 +293,17 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-""""""""""""""""""""""""""""" coc extension """""""""""""""""""""""""""""
+" coc extension
 let g:coc_global_extensions = ['coc-highlight', 'coc-clangd', 'coc-sh', 'coc-rls']
 
 
-""""""""""""""""""""""""""""" tabular """""""""""""""""""""""""""""
+" @ tabular
 "let g:tabular_loaded = 1
 
-""""""""""""""""""""""""""""" vim commentary """""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""" vimspector """""""""""""""""""""""""""""
+" @ vimspector
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 
-""""""""""""""""""""""""""""" vim-cscope """""""""""""""""""""""""""""
+" @ vim-cscope
 set nocst    "在cscope数据库添加成功的时候不在命令栏现实提示信息.
 set cspc=6  "cscope的查找结果在格式上最多显示6层目录.
 let g:autocscope_menus=0  "关闭autocscope插件的快捷健映射.防止和我们定义的快捷键冲突.
