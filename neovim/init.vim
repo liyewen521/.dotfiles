@@ -80,18 +80,15 @@ set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.config/nvim/plugged')
     Plug 'Yggdroot/indentLine'
-    " Plug 'crusoexia/vim-monokai'
-    Plug 'rakr/vim-one'
+    Plug 'fugalh/desert.vim'
     Plug 'vim-airline/vim-airline'       
     Plug 'vim-airline/vim-airline-themes'
     Plug 'luochen1990/rainbow'
     Plug 'preservim/nerdtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    " Plug 'scrooloose/nerdcommenter'
     Plug 'tpope/vim-commentary'
     Plug 'godlygeek/tabular'
-    " Plug 'biosyntax/biosyntax-vim'
     Plug 'mhinz/vim-startify'
     Plug 'puremourning/vimspector'
     Plug 'vim-scripts/autoload_cscope.vim'
@@ -113,7 +110,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#buffer_nr_show = 0
 let g:airline#extensions#tabline#formatter = 'default'
-let g:airline_theme = 'one'  " 主题
+let g:airline_theme = 'molokai'
 let g:airline#extensions#keymap#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#buffer_idx_format = {
@@ -128,16 +125,6 @@ let g:airline#extensions#tabline#buffer_idx_format = {
        \ '8': '8 ',
        \ '9': '9 '
        \}
-" 设置切换tab的快捷键 <\> + <i> 切换到第i个 tab
-" nmap <leader>1 <Plug>AirlineSelectTab1
-" nmap <leader>2 <Plug>AirlineSelectTab2
-" nmap <leader>3 <Plug>AirlineSelectTab3
-" nmap <leader>4 <Plug>AirlineSelectTab4
-" nmap <leader>5 <Plug>AirlineSelectTab5
-" nmap <leader>6 <Plug>AirlineSelectTab6
-" nmap <leader>7 <Plug>AirlineSelectTab7
-" nmap <leader>8 <Plug>AirlineSelectTab8
-" nmap <leader>9 <Plug>AirlineSelectTab9
 " 切换到前一个 tab
 nmap <c-p> <Plug>AirlineSelectPrevTab
 " 切换到后一个 tab
@@ -146,22 +133,9 @@ nmap <c-n> <Plug>AirlineSelectNextTab
 nmap <c-q> :bp<cr>:bd #<cr>
 " 新建tab
 nmap <c-t> :enew<cr>
-" 修改了一些个人不喜欢的字符
-" if !exists('g:airline_symbols')
-"     let g:airline_symbols = {}
-" endif
-" let g:airline_symbols.linenr = "CL" " current line
-" let g:airline_symbols.whitespace = '|'
-" let g:airline_symbols.maxlinenr = 'Ml' "maxline
-" let g:airline_symbols.branch = 'BR'
-" let g:airline_symbols.readonly = "RO"
-" let g:airline_symbols.dirty = "DT"
-" let g:airline_symbols.crypt = "CR"
 
-""""""""""""""""""""""""""""" vim-color-scheme """""""""""""""""""""""""""""
-
-colorscheme one
-set background=dark
+""""""""""""""""""""""""""""" desert color scheme """""""""""""""""""""""""""""
+" colorscheme desert
 
 """"""""""""""""""""""""""""" rainbow """""""""""""""""""""""""""""
 let g:rainbow_active = 1
