@@ -6,7 +6,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 通用设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let mapleader = ","           " 定义<leader>键
+let mapleader = " "           " 定义<leader>键
 set nocompatible              " 设置不兼容原始vi模式
 filetype on                   " 设置开启文件类型侦测
 filetype plugin on            " 设置加载对应文件类型的插件
@@ -24,14 +24,13 @@ set whichwrap+=<,>,h,l        " 设置光标键跨行
 set ttimeoutlen=0             " 设置<ESC>键响应时间
 set virtualedit=block,onemore " 允许光标出现在最后一个字符的后面
 set redrawtime=100000         " 高亮文档的行数上限
-
+set wildmenu                  " 命令自动补全功能
+set relativenumber            " 显示相对行号
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 代码缩进和排版
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set autoindent              " 设置自动缩进
-set cindent                 " 设置使用C/C++语言的自动缩进方式
-set cinoptions=g0,:0,N-s,(0 " 设置C/C++语言的具体缩进方式
 set smartindent             " 智能的选择对其方式
 filetype indent on          " 自适应不同语言的智能缩进
 set expandtab               " 将制表符扩展为空格
@@ -39,20 +38,22 @@ set tabstop=4               " 设置编辑时制表符占用空格数
 set shiftwidth=4            " 设置格式化时制表符占用空格数
 set softtabstop=4           " 设置4个空格为制表符
 set smarttab                " 在行和段开始处使用制表符
-set nowrap                  " 禁止折行
+set wrap                    " 自动折行
 set backspace=2             " 使用回车键正常处理indent,eol,start等
 set sidescroll=10           " 设置向右滚动字符数
 set nofoldenable            " 启动 Vim 时关闭折叠
-set foldmethod=indent       " 缩进折叠模式，za打开或关闭当前折叠，zM关闭所有折叠，zR打开所有折叠
+set foldmethod=indent       " 缩进折叠模式，za打开或关闭当前折叠，
+                            " zM关闭所有折叠，zR打开所有折叠
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 搜索设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set hlsearch            " 高亮显示搜索结果
+exec "nohlsearch"       
+                        " 消除加载新的vim时还会显示上一次的搜索高亮
 set incsearch           " 开启实时搜索功能
 set ignorecase          " 搜索时大小写不敏感
-set noic                " 搜索时大小写敏感
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -69,14 +70,13 @@ set confirm             " 在处理未保存或只读文件的时候，弹出确
 " 编码设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set langmenu=en_US.UTF-8
-" set helplang=cn
 set termencoding=utf-8
 set encoding=utf8
 set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-plug插件列表
+" 插件及配置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.config/nvim/plugged')
     Plug 'Yggdroot/indentLine'
@@ -159,6 +159,7 @@ nmap <c-t> :enew<cr>
 " let g:airline_symbols.crypt = "CR"
 
 """"""""""""""""""""""""""""" vim-color-scheme """""""""""""""""""""""""""""
+
 colorscheme one
 set background=dark
 
@@ -382,3 +383,7 @@ nnoremap <leader>e :edit $MYVIMRC<cr>
 nnoremap <leader><leader>i :PlugInstall<cr>
 nnoremap <leader><leader>u :PlugUpdate<cr>
 nnoremap <leader><leader>c :PlugClean<cr>
+
+" 将Caps Lock映射到Esc
+" au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+" au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
