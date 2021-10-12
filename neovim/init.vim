@@ -81,23 +81,55 @@ set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " @ vim-plug
 call plug#begin('~/.config/nvim/plugged')
+    " 主题
+    Plug 'danilo-augusto/vim-afterglow'
+    
+    " 用于显示代码对齐线
     Plug 'Yggdroot/indentLine'
-    Plug 'fugalh/desert.vim'
+    
+    " 状态栏美化及其主题
     Plug 'vim-airline/vim-airline'       
     Plug 'vim-airline/vim-airline-themes'
+    " 
+    " 彩色括号
     Plug 'luochen1990/rainbow'
+    
+    " 目录树
     Plug 'preservim/nerdtree'
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    
+    " 智能补全插件
+    " Plug 'neoclide/coc.nvim', {'branch': 'release'}   " 升级会返回fatal: invalid reference: release
+    Plug 'neoclide/coc.nvim'
+    
+    " 快速代码注释
     Plug 'tpope/vim-commentary'
-    Plug 'godlygeek/tabular'
-    Plug 'mhinz/vim-startify'
+    
+    " 调试器
     Plug 'puremourning/vimspector'
-    Plug 'vim-scripts/autoload_cscope.vim'
+
+    " 优化打开大文件
+    Plug 'vim-scripts/LargeFile'
+
+    " 用于在NerdTree上显示git信息
+    " Plug 'Xuyuanp/nerdtree-git-plugin'
+    
+    " 代码对齐
+    " Plug 'godlygeek/tabular'
+    
+    " 开始界面
+    " Plug 'mhinz/vim-startify'
+    
+    " Plug 'fugalh/desert.vim'
+    
+    " 用于和ctags配合完成代码的分析和跳转
+    " Plug 'vim-scripts/autoload_cscope.vim'
 call plug#end()
 
 " @ ctags
-set tags=./.tags,.tags,./tags,tags
+" set tags=./.tags,.tags,./tags,tags
+
+" @ color scheme
+colorscheme afterglow
 
 " @ indentLine
 let g:indent_guides_guide_size   = 1  " 指定对齐线的尺寸
@@ -108,21 +140,21 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#buffer_nr_show = 0
 let g:airline#extensions#tabline#formatter = 'default'
-let g:airline_theme = 'molokai'
+let g:airline_theme = 'afterglow'
 let g:airline#extensions#keymap#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#buffer_idx_format = {
-       \ '0': '0 ',
-       \ '1': '1 ',
-       \ '2': '2 ',
-       \ '3': '3 ',
-       \ '4': '4 ',
-       \ '5': '5 ',
-       \ '6': '6 ',
-       \ '7': '7 ',
-       \ '8': '8 ',
-       \ '9': '9 '
-       \}
+        \ '0': '0 ',
+        \ '1': '1 ',
+        \ '2': '2 ',
+        \ '3': '3 ',
+        \ '4': '4 ',
+        \ '5': '5 ',
+        \ '6': '6 ',
+        \ '7': '7 ',
+        \ '8': '8 ',
+        \ '9': '9 '
+        \}
 " 切换到前一个 tab
 nmap <c-p> <Plug>AirlineSelectPrevTab
 " 切换到后一个 tab
@@ -161,20 +193,17 @@ let g:rainbow_conf = {
 \}
 
 " @ nerdtree
-" autocmd vimenter * NERDTree  "自动开启Nerdtree
-let g:NERDTreeWinSize = 25 "设定 NERDTree 视窗大小
-let NERDTreeShowBookmarks=1  " 开启Nerdtree时自动显示Bookmarks
-"打开vim时如果没有文件自动打开NERDTree
-" autocmd vimenter * if !argc()|NERDTree|endif
-"当NERDTree为剩下的唯一窗口时自动关闭
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd vimenter * NERDTree   " 自动开启Nerdtree
+let g:NERDTreeWinSize = 25      " 设定NERDTree视窗大小
+let NERDTreeShowBookmarks=1     " 开启Nerdtree时自动显示Bookmarks
+" autocmd vimenter * if !argc()|NERDTree|endif      " 打开vim时如果没有文件自动打开NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif   " 当NERDTree为剩下的唯一窗口时自动关闭
 " 设置树的显示图标
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 let NERDTreeIgnore = ['\.pyc$']  " 过滤所有.pyc文件不显示
 let g:NERDTreeShowLineNumbers=0 " 是否显示行号
-let g:NERDTreeHidden=0     "不显示隐藏文件
-""Making it prettier
+let g:NERDTreeHidden=0     " 不显示隐藏文件
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 " 开启/关闭nerdtree快捷键
@@ -296,39 +325,41 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " coc extension
 let g:coc_global_extensions = ['coc-highlight', 'coc-clangd', 'coc-sh', 'coc-rls']
 
-
 " @ tabular
-"let g:tabular_loaded = 1
+" let g:tabular_loaded = 1
 
 " @ vimspector
-let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+let g:vimspector_enable_mappings = 'HUMAN'
+let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools', 'CodeLLDB' ]
 
-" @ vim-cscope
-set nocst    "在cscope数据库添加成功的时候不在命令栏现实提示信息.
-set cspc=6  "cscope的查找结果在格式上最多显示6层目录.
-let g:autocscope_menus=0  "关闭autocscope插件的快捷健映射.防止和我们定义的快捷键冲突.
+" @ LargeFile
+let g:LargeFile=100  " 单位为MB
+"" @ vim-cscope
+"set nocst    "在cscope数据库添加成功的时候不在命令栏现实提示信息.
+"set cspc=6  "cscope的查找结果在格式上最多显示6层目录.
+"let g:autocscope_menus=0  "关闭autocscope插件的快捷健映射.防止和我们定义的快捷键冲突.
 
-" ctags 快捷键
-nmap ff <c-]>
-nmap ss <c-t>
+"" ctags 快捷键
+"nmap ff <c-]>
+"nmap ss <c-t>
 
-"cscope相关的快捷键映射
-"s:查找即查找C语言符号出现的地方
-nmap fs :cs find s <C-R>=expand("<cword>")<CR><CR>
-"g:查找函数、宏、枚举等定义的位置
-nmap fg :cs find g <C-R>=expand("<cword>")<CR><CR>
-"c:查找光标下的函数被调用的地方
-nmap fc :cs find c <C-R>=expand("<cword>")<CR><CR>
-"t: 查找指定的字符串出现的地方
-nmap ft :cs find t <C-R>=expand("<cword>")<CR><CR>
-"e:egrep模式查找,相当于egrep功能
-nmap fe :cs find e <C-R>=expand("<cword>")<CR><CR>
-"f: 查找文件名,相当于lookupfile
-nmap fn :cs find f <C-R>=expand("<cfile>")<CR><CR>
-"i: 查找当前文件名出现过的地方
-nmap fi :cs find i <C-R>=expand("<cfile>")<CR><CR>
-"d: 查找本当前函数调用的函数
-nmap fd :cs find d <C-R>=expand("<cword>")<CR><CR>
+""cscope相关的快捷键映射
+""s:查找即查找C语言符号出现的地方
+"nmap fs :cs find s <C-R>=expand("<cword>")<CR><CR>
+""g:查找函数、宏、枚举等定义的位置
+"nmap fg :cs find g <C-R>=expand("<cword>")<CR><CR>
+""c:查找光标下的函数被调用的地方
+"nmap fc :cs find c <C-R>=expand("<cword>")<CR><CR>
+""t: 查找指定的字符串出现的地方
+"nmap ft :cs find t <C-R>=expand("<cword>")<CR><CR>
+""e:egrep模式查找,相当于egrep功能
+"nmap fe :cs find e <C-R>=expand("<cword>")<CR><CR>
+""f: 查找文件名,相当于lookupfile
+"nmap fn :cs find f <C-R>=expand("<cfile>")<CR><CR>
+""i: 查找当前文件名出现过的地方
+"nmap fi :cs find i <C-R>=expand("<cfile>")<CR><CR>
+""d: 查找本当前函数调用的函数
+"nmap fd :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
