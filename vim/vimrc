@@ -1,77 +1,82 @@
-" Vim configuration file "
-
-" enable mouse support "
-set mouse=a
-
-" enable syntax "
-syntax on
-
-" enable line numbers "
+" 显示行号
 set number
 
-" highlight current line "
-set cursorline
-:highlight Cursorline cterm=bold ctermbg=black
+" 语法高亮
+syntax on
 
-" enable highlight search pattern "
+" 启用鼠标
+set mouse=a
+
+" 显示当前模式
+set showmode
+
+" 显示命令
+set showcmd
+
+" 设置缩进为4个空格
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" 自动缩进
+set autoindent
+
+" 搜索时高亮显示结果
 set hlsearch
 
-" enable smartcase search sensitivity "
+" 输入搜索内容时即时显示结果
+set incsearch
+
+" 搜索时忽略大小写
 set ignorecase
 set smartcase
 
-" Indentation using spaces "
-" tabstop:	width of tab character
-" softtabstop:	fine tunes the amount of whitespace to be added
-" shiftwidth:	determines the amount of whitespace to add in normal mode
-" expandtab:	when on use space instead of tab
-" textwidth:	text wrap width
-" autoindent:	autoindent in new line
-set tabstop	=4
-set softtabstop	=4
-set shiftwidth	=4
-set textwidth	=79
-set expandtab
-set autoindent
-
-" show the matching part of pairs [] {} and () "
+" 显示匹配的括号
 set showmatch
 
-" remove trailing whitespace from Python and Fortran files "
-autocmd BufWritePre *.py :%s/\s\+$//e
-autocmd BufWritePre *.f90 :%s/\s\+$//e
-autocmd BufWritePre *.f95 :%s/\s\+$//e
-autocmd BufWritePre *.for :%s/\s\+$//e
+" 设置编码
+set encoding=utf-8
 
-" enable color themes "
-if !has('gui_running')
-	set t_Co=256
-endif
-" enable true colors support "
-set termguicolors
-" Vim colorscheme "
-colorscheme desert
+" 在底部显示状态栏
+set laststatus=2
 
-"-------------------------------------------------------------"
-"Bonus. " Find & Replace (if you use the ignorecase, smartcase these are mandatory) "
-"            :%s/<find>/<replace>/g   "replace global (e.g. :%s/mass/grass/g)"
-"            :%s/<find>/<replace>/gc  "replace global with confirmation"
-"            :%s/<find>/<replace>/gi  "replace global case insensitive"
-"            :%s/<find>/<replace>/gI  "replace global case sensitive"
-"            :%s/<find>/<replace>/gIc "replace global case sensitive with confirmation"
+" 支持使用退格键
+set backspace=indent,eol,start
 
-"        " Vim (book)marks "
-"            mn     "replace n with a word A-Z or number 0-9"
-"            :'n     "go to mark n"
-"            :`.     "go to the last change"
-"            :marks  "show all declared marks"
-"            :delm n "delete mark n"
+" 设置命令行历史记录
+set history=1000
 
-"        " Delete range selection "
-"            :<line_number>,<line_number>d "(e.g. :2,10d deletes lines 2-10)"
+" 显示光标当前位置
+set ruler
 
-"        " LaTeX shortcuts "
-"            nnoremap <F1> :! pdflatex %<CR><CR>
-"            nnoremap <F2> :! bibtex $(echo % \| sed 's/.tex$//') & disown<CR><CR>
-"            nnoremap <F3> :! evince $(echo % \| sed 's/tex$/pdf/') & disown<CR><CR>
-"            nnoremap <F4> :! rm *.log *.aux *.out *.blg & disown<CR><CR>
+" 高亮显示当前行
+set cursorline
+
+" 允许在未保存的情况下切换缓冲区
+set hidden
+
+" 设置自动换行
+set wrap
+
+" 打开文件时恢复上次光标位置
+autocmd BufReadPost *
+  \ if line("'\"") >= 1 && line("'\"") <= line("$") |
+  \   exe "normal! g`\"" |
+  \ endif
+
+" 禁止创建备份文件
+set nobackup
+set nowritebackup
+set noswapfile
+
+" 设置智能缩进
+set smartindent
+
+" 设置颜色主题（使用vim自带主题）
+colorscheme desert  " 或者: elflord, murphy, pablo, torte 等
+
+" 设置终端支持256色
+set t_Co=256
+
+" 状态栏设置
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
