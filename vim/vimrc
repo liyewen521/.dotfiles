@@ -80,3 +80,8 @@ set t_Co=256
 
 " 状态栏设置
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
+
+" 开启自动补全
+filetype plugin indent on
+set completeopt=menu,menuone,noselect
+
