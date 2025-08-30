@@ -50,7 +50,7 @@ set history=1000
 set ruler
 
 " 高亮显示当前行
-set cursorline
+" set cursorline
 
 " 允许在未保存的情况下切换缓冲区
 set hidden
@@ -73,7 +73,7 @@ set noswapfile
 set smartindent
 
 " 设置颜色主题（使用vim自带主题）
-colorscheme desert  " 或者: elflord, murphy, pablo, torte 等
+" colorscheme desert  " 或者: elflord, murphy, pablo, torte 等
 
 " 设置终端支持256色
 set t_Co=256
