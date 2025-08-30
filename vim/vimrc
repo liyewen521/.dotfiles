@@ -56,7 +56,7 @@ set ruler
 set hidden
 
 " 设置自动换行
-set wrap
+" set wrap
 
 " 打开文件时恢复上次光标位置
 autocmd BufReadPost *
