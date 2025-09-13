@@ -1,30 +1,3 @@
-# Overview
-My configurations of some Linux tool:
-  - NeoVIM
-  - Tmux
-  - Zsh
-  - Bash
-  - System Proxy
-
-## Neovim
-```bash
-$ cd neovim
-$ source install_neovim.sh
-```
-
-# Tmux
-```bash
-$ cd tmux
-$ source install_tmux.sh  
-```
-
-# Zsh
-```bash
-$ cd zsh
-$ source install_zsh.sh  
-```
-
-
 # Overview for Docker
 My configurations of some Linux tool:
   - Vim
@@ -59,4 +32,32 @@ $ ln -sf ${HOME}/.dotfiles/.tmux.conf ${HOME}/.tmux.conf
 ```bash
 $ cd .dotfile
 $ ln -sf ${HOME}/.dotfiles/.zshrc ${HOME}/.zshrc
+``` -->
+
+
+
+<!-- # Overview
+My configurations of some Linux tool:
+  - NeoVIM
+  - Tmux
+  - Zsh
+  - Bash
+  - System Proxy
+
+## Neovim
+```bash
+$ cd neovim
+$ source install_neovim.sh
+```
+
+# Tmux
+```bash
+$ cd tmux
+$ source install_tmux.sh  
+```
+
+# Zsh
+```bash
+$ cd zsh
+$ source install_zsh.sh  
 ``` -->
