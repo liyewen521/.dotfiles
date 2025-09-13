@@ -1,0 +1,87 @@
+" 显示行号
+set number
+
+" 语法高亮
+syntax on
+
+" 启用鼠标
+set mouse=a
+
+" 显示当前模式
+set showmode
+
+" 显示命令
+set showcmd
+
+" 设置缩进为4个空格
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" 自动缩进
+set autoindent
+
+" 搜索时高亮显示结果
+set hlsearch
+
+" 输入搜索内容时即时显示结果
+set incsearch
+
+" 搜索时忽略大小写
+set ignorecase
+set smartcase
+
+" 显示匹配的括号
+set showmatch
+
+" 设置编码
+set encoding=utf-8
+
+" 在底部显示状态栏
+set laststatus=2
+
+" 支持使用退格键
+set backspace=indent,eol,start
+
+" 设置命令行历史记录
+set history=1000
+
+" 显示光标当前位置
+set ruler
+
+" 高亮显示当前行
+" set cursorline
+
+" 允许在未保存的情况下切换缓冲区
+set hidden
+
+" 设置自动换行
+" set wrap
+
+" 打开文件时恢复上次光标位置
+autocmd BufReadPost *
+  \ if line("'\"") >= 1 && line("'\"") <= line("$") |
+  \   exe "normal! g`\"" |
+  \ endif
+
+" 禁止创建备份文件
+set nobackup
+set nowritebackup
+set noswapfile
+
+" 设置智能缩进
+set smartindent
+
+" 设置颜色主题（使用vim自带主题）
+" colorscheme desert  " 或者: elflord, murphy, pablo, torte 等
+
+" 设置终端支持256色
+set t_Co=256
+
+" 状态栏设置
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
+
+" 开启自动补全
+filetype plugin indent on
+set completeopt=menu,menuone,noselect
+
