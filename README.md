@@ -1,5 +1,5 @@
 # My R&D Configuration
-My configurations of some Linux tool:
+My configurations of some Linux tools:
   - Vim
   - Tmux
   - Zsh
