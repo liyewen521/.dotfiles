@@ -1,63 +1,37 @@
-# My R&D Configuration
-My configurations of some Linux tools:
-  - Vim
-  - Tmux
-  - Zsh
+# Automated Dotfiles Setup Guide
 
+This repository modularizes configuration for Bash, Vim, and Tmux. For a clean and consistent environment, follow the steps below in order:
+
+## Install system packages
+
+Install system packages with:
 ```bash
-bash runme.sh
+bash install_packages.sh
 ```
 
-<!-- ## Basic Install
+## 1. Auto-configure Bash
+
+Install Oh My Bash for enhanced experience:
 ```bash
-apt update
-apt install -y tmux vim htop
-apt install -y zsh zsh-autosuggestions zsh-syntax-highlighting zsh-theme-powerlevel9k
+bash install_oh_my_bash.sh
 ```
 
-## VIM
+Run the following to symlink bash configs and automatically update `.bashrc`:
 ```bash
-$ cd .dotfile
-$ ln -sf ${HOME}/.dotfiles/.vimrc ${HOME}/.vimrc
+bash setup_bash.sh
 ```
 
-# Tmux
+## 2. Auto-configure Vim
+
+Symlink vim configuration with:
 ```bash
-$ cd .dotfile
-$ ln -sf ${HOME}/.dotfiles/.tmux.conf ${HOME}/.tmux.conf
+bash setup_vim.sh
 ```
 
+## 3. Auto-configure Tmux
 
-# Zsh
+Symlink tmux configuration with:
 ```bash
-$ cd .dotfile
-$ ln -sf ${HOME}/.dotfiles/.zshrc ${HOME}/.zshrc
-``` -->
-
-
-
-<!-- # Overview
-My configurations of some Linux tool:
-  - NeoVIM
-  - Tmux
-  - Zsh
-  - Bash
-  - System Proxy
-
-## Neovim
-```bash
-$ cd neovim
-$ source install_neovim.sh
+bash setup_tmux.sh
 ```
 
-# Tmux
-```bash
-$ cd tmux
-$ source install_tmux.sh  
-```
-
-# Zsh
-```bash
-$ cd zsh
-$ source install_zsh.sh  
-``` -->

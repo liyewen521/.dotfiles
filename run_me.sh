@@ -1,9 +1,16 @@
-apt update
-apt install -y tmux vim htop git
-apt install -y zsh zsh-autosuggestions zsh-syntax-highlighting zsh-theme-powerlevel9k
+#!/bin/bash
 
-ln -sf ${HOME}/.dotfiles/.vimrc ${HOME}/.vimrc
+# Install system packages
+bash ${HOME}/.dotfiles/install_packages.sh
 
-ln -sf ${HOME}/.dotfiles/.tmux.conf ${HOME}/.tmux.conf
+# Install oh-my-bash
+bash ${HOME}/.dotfiles/install_oh_my_bash.sh
 
-ln -sf ${HOME}/.dotfiles/.zshrc ${HOME}/.zshrc
+# Setup vim
+bash ${HOME}/.dotfiles/setup_vim.sh
+
+# Setup tmux
+bash ${HOME}/.dotfiles/setup_tmux.sh
+
+# Setup bash
+bash ${HOME}/.dotfiles/setup_bash.sh

@@ -1,0 +1,16 @@
+# Path to your oh-my-bash installation.
+export OSH=$HOME/.oh-my-bash
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-bash is loaded.
+OSH_THEME="vscode"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-bash/plugins/*)
+# Custom plugins may be added to ~/.oh-my-bash/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git bash-preexec)
+
+source $OSH/oh-my-bash.sh
+
+alias ls='ls --color=auto'
