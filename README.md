@@ -9,7 +9,7 @@ Install system packages with:
 bash install_packages.sh
 ```
 
-## 1. Auto-configure Bash
+## Auto-configure Bash
 
 Install Oh My Bash for enhanced experience:
 ```bash
@@ -21,14 +21,14 @@ Run the following to symlink bash configs and automatically update `.bashrc`:
 bash setup_bash.sh
 ```
 
-## 2. Auto-configure Vim
+## Auto-configure Vim
 
 Symlink vim configuration with:
 ```bash
 bash setup_vim.sh
 ```
 
-## 3. Auto-configure Tmux
+## Auto-configure Tmux
 
 Symlink tmux configuration with:
 ```bash
